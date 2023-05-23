@@ -5,5 +5,7 @@ def processString(string):
     doc = nlp(string)
     tokens = [token.text for token in doc]
     lemmas = [token.lemma_ for token in doc]
-    return_object = { "tokens": tokens, "lemmas": lemmas }
-    return return_object
+    pos_tags = [token.pos_ for token in doc]
+    print(pos_tags)
+    data = { "tokens": tokens, "lemmas": lemmas }
+    return data
