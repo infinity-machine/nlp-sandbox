@@ -6,5 +6,4 @@ from server.nlp import *
 class API(APIView):
     def post(self, request):
         data = processString(request.data)
-        print(data)
-        return Response('ok')
+        return Response(data)
