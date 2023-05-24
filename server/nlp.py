@@ -17,7 +17,6 @@ def processString(string):
         "tags": tags,
         "pos_tags": pos_tags,
         "dep_arcs": dep_arcs,
-        "heads": heads
     }
     pprint(data)
     return data

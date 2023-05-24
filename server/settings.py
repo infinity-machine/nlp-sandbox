@@ -19,7 +19,6 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -27,10 +26,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# IS_HEROKU = 'DYNO' in os.environ
+
+# if IS_HEROKU:
+#     DEBUG = False
+#     ALLOWED_HOSTS = ['*']
+
+# if not IS_HEROKU:
+#     DEBUG = True
+#     ALLOWED_HOSTS = []
 DEBUG = False
-
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
