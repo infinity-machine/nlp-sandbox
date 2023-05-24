@@ -26,8 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 IS_HEROKU = 'DYNO' in os.environ
 if IS_HEROKU:
     SECRET_KEY = os.environ['SECRET_KEY']
-    DEBUG = True
-    ALLOWED_HOSTS = ['*']
+    print(SECRET_KEY)
+    DEBUG = False
+    ALLOWED_HOSTS = ['nlp-sandbox.herokuapp.com']
 
 if not IS_HEROKU:
     print('RUNNING IN DEV MODE')
