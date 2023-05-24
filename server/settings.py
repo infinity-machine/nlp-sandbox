@@ -13,9 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
-from dotenv import load_dotenv
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,16 +20,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
-
+# SECRET_KEY = os.getenv('SECRET_KEY')
+# print(SECRET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
 IS_HEROKU = 'DYNO' in os.environ
 if IS_HEROKU:
+    SECRET_KEY = os.environ['SECRET_KEY']
     DEBUG = True
     ALLOWED_HOSTS = ['*']
 
 if not IS_HEROKU:
     print('RUNNING IN DEV MODE')
+    from dotenv import load_dotenv
+    load_dotenv()
+    SECRET_KEY = os.getenv('SECRET_KEY')
     DEBUG = True
     ALLOWED_HOSTS = []
 # DEBUG = False
