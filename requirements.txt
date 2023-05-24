@@ -20,6 +20,7 @@ packaging==23.1
 pathy==0.10.1
 preshed==3.0.8
 pydantic==1.10.8
+python-dotenv==1.0.0
 pytz==2023.3
 requests==2.31.0
 smart-open==6.3.0

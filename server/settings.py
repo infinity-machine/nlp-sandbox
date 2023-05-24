@@ -26,17 +26,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# IS_HEROKU = 'DYNO' in os.environ
+IS_HEROKU = 'DYNO' in os.environ
+if IS_HEROKU:
+    DEBUG = False
+    ALLOWED_HOSTS = ['*']
 
-# if IS_HEROKU:
-#     DEBUG = False
-#     ALLOWED_HOSTS = ['*']
-
-# if not IS_HEROKU:
-#     DEBUG = True
-#     ALLOWED_HOSTS = []
-DEBUG = False
-ALLOWED_HOSTS = ['*']
+if not IS_HEROKU:
+    print('RUNNING IN DEV MODE')
+    DEBUG = True
+    ALLOWED_HOSTS = []
+# DEBUG = False
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
