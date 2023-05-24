@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 IS_HEROKU = 'DYNO' in os.environ
 if IS_HEROKU:
     SECRET_KEY = os.environ['SECRET_KEY']
-    DEBUG = True
+    DEBUG = False
     ALLOWED_HOSTS = ['*']
 
 if not IS_HEROKU:
