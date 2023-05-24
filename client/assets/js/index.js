@@ -24,19 +24,27 @@ function renderData(data){
 };
 
 // CREATES AND APPENDS ELEMENTS TO A GIVEN NODE WITH GIVEN INNERTEXT VALUES
-// function appendTableRows(strings_array, table_to_append, element_type){
-//     strings_array.map((string, index) => {
+// function appendTableRows(data_object, table_to_append, element_type){
+//     // strings_array.map((string, index) => {
+//     //     const new_row = document.createElement('tr');
+//     //     const item_to_add = document.createElement(element_type);
+//     //     item_to_add.innerText = string;
+//     //     new_row.appendChild(item_to_add)
+//     //     table_to_append.appendChild(new_row);
+//     // });
+//     data_object.tokens.map((string, index) => {
 //         const new_row = document.createElement('tr');
-//         const item_to_add = document.createElement(element_type);
-//         item_to_add.innerText = string;
-//         new_row.appendChild(item_to_add)
-//         table_to_append.appendChild(new_row);
-//     });
+//         const token = document.createElement('td');
+//         const lemma = document.createElement('td');
+//         token.innerText = string;
+//         lemma.innerText = data_object.lemmas[index];
+//         new_row.append(token, lemma)
+//         table_to_append.append(new_row)
+//     })
 // };
 
 // function renderTable(data){
 //     table_node.innerHTML = '';
-//     appendTableRows(['TOKENS', 'LEMMAS', 'PART-OF-SPEECH'], table_node, 'th')
 //     appendTableRows(data, table_node, 'td')
 // }
 
