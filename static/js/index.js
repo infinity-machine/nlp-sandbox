@@ -1,8 +1,5 @@
 const form = document.getElementById('form');
 const input = form.children[0];
-const data_node = document.getElementById('data');
-const tokens_list = data_node.children[0].children[1];
-const lemmas_list = data_node.children[1].children[1];
 
 function createAndAppendListItems(strings_array, list_element){
     strings_array.map((string) => {
@@ -30,6 +27,7 @@ async function fetchAPIResponse(string){
 async function handleSubmit(e){
     e.preventDefault();
     const response = await fetchAPIResponse(input.value);
+    if(response.status !== 200) return false;
     const data = await response.json();
     renderData(data);
     input.value = '';
